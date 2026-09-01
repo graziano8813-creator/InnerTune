@@ -30,7 +30,7 @@ jobs:
           cache: 'gradle'
 
       - name: Generate debug keystore
-        run: keytool -genkeypair -v -keystore app/music-debug.jks -storetype JKS -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -storepass android123 -keypass android123 -dname "CN=Android Debug,O=Android,C=US"
+        run: keytool -genkeypair -v -keystore app/music-debug.jks -storetype JKS -alias debug -keyalg RSA -keysize 2048 -validity 10000 -storepass android123 -keypass android123 -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Build debug APK and run jvm tests
         run: ./gradlew assembleFossDebug --stacktrace -DskipFormatKtlint
